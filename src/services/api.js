@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-// Use environment variable or fallback to Railway URL
-const API_BASE_URL = 'tax-box-backend-sample-production.up.railway.app';
+// Use environment variable or fallback to Railway backend URL
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://tax-box-backend-sample-production.up.railway.app';
+
 const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
