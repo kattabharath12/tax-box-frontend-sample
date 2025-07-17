@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../context/AuthContext';
 import TaxForm from './TaxForm';
 import api from '../services/api';
@@ -12,11 +12,7 @@ function Dashboard() {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [notifications, setNotifications] = useState([]);
 
-  useEffect(() => {
-    fetchTaxReturns();
-  }, []);
-
-  const fetchTaxReturns = async () => {
+  const fetchTaxReturns = useCallback(async () => {
     try {
       const response = await api.get('/tax-returns');
       setTaxReturns(response.data);
@@ -26,7 +22,11 @@ function Dashboard() {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchTaxReturns();
+  }, [fetchTaxReturns]);
 
   const addNotification = (message, type = 'success') => {
     const id = Date.now();
