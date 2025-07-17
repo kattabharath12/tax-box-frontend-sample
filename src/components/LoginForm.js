@@ -118,20 +118,7 @@ function LoginForm() {
             </button>
           </form>
 
-          <div className="auth-divider">
-            <span>or continue with</span>
-          </div>
 
-          <div className="social-buttons">
-            <button className="social-button google">
-              <span className="social-icon">🔍</span>
-              <span>Google</span>
-            </button>
-            <button className="social-button microsoft">
-              <span className="social-icon">🪟</span>
-              <span>Microsoft</span>
-            </button>
-          </div>
 
           <div className="auth-footer">
             <p>
@@ -556,35 +543,11 @@ function LoginForm() {
         }
 
         .social-buttons {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 1rem;
-          margin-bottom: 2rem;
+          display: none;
         }
 
         .social-button {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 0.5rem;
-          padding: 0.75rem;
-          border: 2px solid #e5e7eb;
-          border-radius: 12px;
-          background: white;
-          color: #374151;
-          font-weight: 500;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-
-        .social-button:hover {
-          border-color: #d1d5db;
-          transform: translateY(-2px);
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .social-icon {
-          font-size: 1.2rem;
+          display: none;
         }
 
         .auth-footer {
